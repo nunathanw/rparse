@@ -1,19 +1,9 @@
 import time, csv
 from bs4 import BeautifulSoup
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
+from driver import get_driver
 
 
-def get_driver():
-    service = Service("/opt/homebrew/bin/chromedriver")
-    options = webdriver.ChromeOptions()
-    driver = webdriver.Chrome(service=service, options=options)
-    return driver
-
-
-def show_links(subject="EnglishLearning", titles=True, links=True):
+def show_links(subject="history", titles=True, links=True):
     saved_titles = []
     saved_links = []
     with open(f"reddit_data/{subject}/reddit_links.csv", "r", encoding="utf-8") as f:

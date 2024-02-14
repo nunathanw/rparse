@@ -2,19 +2,7 @@ import os, sys
 from reddit_links import get_new_links, check_saved_links
 from get_html_files import get_html_from_links
 from reddit_comments import write_comments
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-
-
-def get_driver():
-    service = Service("/opt/homebrew/bin/chromedriver")
-    options = webdriver.ChromeOptions()
-    driver = webdriver.Chrome(service=service, options=options)
-    return driver
+from driver import get_driver
 
 
 def parse(subject, scroll=0, driver=None):
